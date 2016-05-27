@@ -1,4 +1,0 @@
-# environemnt variables for setup_mail.rb
-ENV["email_user_name"] = "PUT YOUR USERNAME HERE"
-ENV["email_password"]  = "PUT YOUR PASSWORD HERE"
-ENV["bing_key"] = "PUT YOUR BING KEY HERE"

@@ -19,6 +19,8 @@
 //= require jquery-ui
 //= require underscore
 //= require gmaps/google
+//= require dropzone
+//= require cocoon
 //= require_tree .
 //
 // AppKey is from Bing Market Place account

@@ -64,6 +64,9 @@ class OrganizationsController < ApplicationController
     @organization       = Organization.new(organization_params)
     @organization.user  = current_user
     if @organization.save
+      @organization.images[0].url # => '/url/to/file.png'
+      @organization.images[0].current_path # => 'path/to/file.png'
+      @organization.images[0].identifier # => 'file.png'
       redirect_to organization_path(@organization), notice: "Organization Created!"
     else
       flash[:alert] = "organization didn't save!"
@@ -82,7 +85,7 @@ class OrganizationsController < ApplicationController
   end
 
   def organization_params
-    params.require(:organization).permit([:name, :address, :overview, :employee_count, :tech_team_size, :website, :twitter, :logo, :published, :image, :image2, :image3, :image4, :user_id, {technology_ids: []} ])
+    params.require(:organization).permit([:name, :address, :overview, :employee_count, :tech_team_size, :website, :twitter, :logo, :published, :user_id, {technology_ids: []}, {images:[]} ])
   end
 
   def authorize_organization

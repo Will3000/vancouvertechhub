@@ -65,6 +65,8 @@ gem 'sidekiq'
 gem "virtus"
 
 gem 'simplecov', require: false, group: :test
+gem 'dropzonejs-rails'
+gem 'cocoon'
 
 group :development, :test do
   gem 'pry'

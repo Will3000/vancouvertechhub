@@ -1,4 +1,4 @@
-<%= simple_form_for @organization do |f| %>
+<%= simple_form_for @organization,id:"media-dropzone", class:"dropzone", enctype:"multipart/form-data" do |f| %>
   <%= f.input :name, input_html: {class: "abc"}, label_html: {class: "hey"} %>
   <%= f.input :address %>
   <%= f.input :overview %>
@@ -11,9 +11,12 @@
     <%= f.input :published, as: :boolean, checked_value: true, unchecked_value: false %>
   <% end %>
   <%= f.association :technologies, input_html: {class: "chosen-select"} %>
-  <%= f.file_field :image %>
-  <%= f.file_field :image2 %>
-  <%= f.file_field :image3 %>
-  <%= f.file_field :image4 %>
+  <h2>Images</h2>
+  <%= f.error :media %>
+  <%= f.simple_fields_for :media do |r| %>
+    <%= render "medium_fields", f: r %>
+  <% end %>
+  <%#= link_to_add_association 'add media', f, :media,
+           data: {"association-insertion-method" => :after} %>
   <%= f.submit class: "btn btn-primary" %>
 <% end %>
