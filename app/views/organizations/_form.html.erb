@@ -6,17 +6,11 @@
   <%= f.input :tech_team_size %>
   <%= f.input :website %>
   <%= f.input :twitter %>
-  <%#= f.input :manager %>
   <% if current_user.admin == true %>
     <%= f.input :published, as: :boolean, checked_value: true, unchecked_value: false %>
   <% end %>
   <%= f.association :technologies, input_html: {class: "chosen-select"} %>
   <h2>Images</h2>
-  <%= f.error :media %>
-  <%= f.simple_fields_for :media do |r| %>
-    <%= render "medium_fields", f: r %>
-  <% end %>
-  <%#= link_to_add_association 'add media', f, :media,
-           data: {"association-insertion-method" => :after} %>
+  <%= f.file_field :images, class:"image_upload", multiple: true%>
   <%= f.submit class: "btn btn-primary" %>
 <% end %>
